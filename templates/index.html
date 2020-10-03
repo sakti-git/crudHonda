@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-HONDA</title>
+</head>
+
+<body>
+    <center>
+        <h1>HONDA LOGO</h1>
+        <h3>CRUD Product</h3>
+        <hr>
+        <a href="{% url 'insertMotor' %}">Create New Product</a>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Transmision</th>
+                <th>Color</th>
+                <th>Price</th>
+            </tr>
+            {% for result in data%}
+            <tr>
+                <td>{(result.id)}</td>
+                <td>{(result.nama)}</td>
+                <td>{(result.transmisi)}</td>
+                <td>{(result.warna)}</td>
+                <td>{(result.harga)}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+
+</html>

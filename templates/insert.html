@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-HONDA</title>
+</head>
+
+<body>
+    <center>
+        <h1>INSERT</h1>
+        <h3>CRUD Product</h3>
+        <hr>
+        <form method="POST">
+            {% csrf_token %}
+            <table border="1">
+                <tr>
+                    <td>Product Name</td>
+                    <td><input type="text" name="nama"></td>
+                </tr>
+                <tr>
+                    <td>Transmision</td>
+                    <td><input type="radio" name="M">Manual |
+                        <input type="radio" name="A">Automatic</td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td><input type="text" name="color"></td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input type="text" name="harga"></td>
+                </tr>
+            </table>
+            {% if messages %}
+            {% for mess in messages %}
+            <b style="color: green;">{{mess}}</b>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </center>
+</body>
+
+</html>
