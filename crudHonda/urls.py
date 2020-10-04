@@ -20,5 +20,8 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', views.showProd, name="showProd"),
-    url(r'^insert', views.insertMotor, name="insertMotor"),
+    url(r'^Insert', views.insertMotor, name="insertMotor"),
+    url(r'^Edit/<int:id>', views.editMotor, name="editMotor"),
+    url(r'^Update/<int:id>', views.updateProd, name="updateProd"),
+    url(r'^Delete/<int:id>', views.deleteProd, name="deleteProd")
 ]

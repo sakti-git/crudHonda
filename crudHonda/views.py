@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from crudHonda.models import ProductModel
 from django.contrib import messages
+from crudHonda.forms import ProductForms
+from django.views.decorators.csrf import csrf_protect
+from django.template import RequestContext
 
 
 def showProd(request):
@@ -22,3 +25,25 @@ def insertMotor(request):
             return render(request, 'insert.html')
     else:
         return render(request, 'insert.html')
+
+
+def editMotor(request, id):
+    editObj = ProductModel.objects.get(id=id)
+    return render(request, 'edit.html', {"ProductModel": editObj})
+
+
+def updateProd(request, id):
+    UpdateProd = ProductModel.objects.get(id=id)
+    form = ProductForms(request.POST, instance=UpdateProd)
+    if form.is_valid():
+
+        form.save()
+        messages.success(request, 'Record Updated Successfull...!')
+        return render(request, 'edit.html', {"ProductModel": UpdateProd})
+
+
+def deleteProd(request, id):
+    DeleteProd = ProductModel.objects.get(id=id)
+    DeleteProd.delete()
+    showdata = ProductModel.object.all()
+    return render(request, "index.html", {"data": showdata})

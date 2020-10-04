@@ -4,33 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <title>CRUD-HONDA</title>
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
     <center>
-        <h1>HONDA LOGO</h1>
-        <h3>CRUD Product</h3>
-        <hr>
-        <a href="{% url 'insertMotor' %}">Create New Product</a>
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Transmision</th>
-                <th>Color</th>
-                <th>Price</th>
-            </tr>
-            {% for result in data%}
-            <tr>
-                <td>{(result.id)}</td>
-                <td>{(result.nama)}</td>
-                <td>{(result.transmisi)}</td>
-                <td>{(result.warna)}</td>
-                <td>{(result.harga)}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: lightgray;">
+            <img src="./pngwing.com.png" style="padding-left: 50px;">
+        </nav>
+        <h3 style="text-align: center;">C.R.U.D Product</h3>
+
+        <form action="" id="form-filter" method="POST"
+            style="padding-top: 20px; padding-bottom: 10px; padding-right: 100px; padding-left: 100px;">
+
+            <table class="table table-hover" style="border-style: solid;">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Transmission</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                {% for result in data%}
+                <tr>
+                    <td>{{result.id}}</td>
+                    <td>{{result.nama}}</td>
+                    <td>{{result.transmisi}}</td>
+                    <td>{{result.warna}}</td>
+                    <td>{{result.harga}}</td>
+                    <td><button class="btn btn-success" href="Edit/{{result.id}}" />Edit
+                        <button class="btn btn-danger" href="Delete/{{result.id}}"
+                            onclick="return confirmation('Are you sure want to DELETE..?')" />Delete</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button class="btn btn-primary" href="{% url 'insertMotor' %}">Add Product</button>
+
+        </form>
     </center>
 </body>
 
