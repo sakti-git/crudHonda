@@ -2,7 +2,6 @@ from django.shortcuts import render
 from crudHonda.models import ProductModel
 from django.contrib import messages
 from crudHonda.forms import ProductForms
-from django.views.decorators.csrf import csrf_protect
 from django.template import RequestContext
 
 

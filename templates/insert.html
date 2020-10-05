@@ -22,7 +22,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: lightgray;">
             <img src="./pngwing.com.png" style="padding-left: 50px;">
         </nav>
-        <h3 style="text-align: center;">INSERT Product</h3>
+
+        <h3>INSERT Product</h3>
         <form id="form-filter" method="POST" style="padding-bottom: 10px; padding-right: 100px; padding-left: 100px;">
             {% csrf_token %}
             <table class="table table-hover" style="border-style: solid;">
@@ -53,8 +54,9 @@
                     </td>
                 </tr>
             </table>
-            <a href="{% url 'showProd' %}">Back to Home</a>
+            <a href="{% url 'showProd' %}" class="btn btn-warning">Back</a>
         </form>
+
     </center>
 </body>
 

@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: lightgray;">
             <img src="./pngwing.com.png" style="padding-left: 50px;">
         </nav>
-        <h3 style="text-align: center;">EDIT Product</h3>
+        <h3>EDIT Product</h3>
 
         <form action="/Update/{{ProductModel}}" id="form-filter" method="POST"
             style="padding-bottom: 10px; padding-right: 100px; padding-left: 100px;">
@@ -60,7 +60,7 @@
                     </td>
                 </tr>
             </table>
-            <a href="{% url 'showProd' %}">Back to Home</a>
+            <a href="{% url 'showProd' %}" class="btn btn-warning">Back</a>
         </form>
 
     </center>

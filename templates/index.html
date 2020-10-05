@@ -22,11 +22,11 @@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: lightgray;">
             <img src="./pngwing.com.png" style="padding-left: 50px;">
         </nav>
-        <h3 style="text-align: center;">C.R.U.D Product</h3>
+        <h3>LIST PRODUCT</h3>
 
-        <form action="" id="form-filter" method="POST"
+        <form action="{% url 'insertMotor' %}" method="POST"
             style="padding-top: 20px; padding-bottom: 10px; padding-right: 100px; padding-left: 100px;">
-
+            {% csrf_token %}
             <table class="table table-hover" style="border-style: solid;">
                 <thead class="thead-light">
                     <tr>
@@ -45,15 +45,15 @@
                     <td>{{result.transmisi}}</td>
                     <td>{{result.warna}}</td>
                     <td>{{result.harga}}</td>
-                    <td><button class="btn btn-success" href="Edit/{{result.id}}" />Edit
-                        <button class="btn btn-danger" href="Delete/{{result.id}}"
-                            onclick="return confirmation('Are you sure want to DELETE..?')" />Delete</td>
+                    <td><a class="btn btn-success" href="Edit/{{result.id}}">Edit</a>
+                        <a class="btn btn-danger" href="Delete/{{result.id}}"
+                            onclick="return confirmation('Are you sure want to DELETE..?')">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
-            <button class="btn btn-primary" href="{% url 'insertMotor' %}">Add Product</button>
-
+            <button class="btn btn-primary">Add</button>
         </form>
+
     </center>
 </body>
 
