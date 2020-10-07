@@ -24,7 +24,7 @@
         </nav>
         <h3>LIST PRODUCT</h3>
 
-        <form action="{% url 'insertMotor' %}" method="POST"
+        <form action="" method="POST"
             style="padding-top: 20px; padding-bottom: 10px; padding-right: 100px; padding-left: 100px;">
             {% csrf_token %}
             <table class="table table-hover" style="border-style: solid;">
@@ -47,11 +47,11 @@
                     <td>{{result.harga}}</td>
                     <td><a class="btn btn-success" href="Edit/{{result.id}}">Edit</a>
                         <a class="btn btn-danger" href="Delete/{{result.id}}"
-                            onclick="return confirmation('Are you sure want to DELETE..?')">Delete</a></td>
+                            onclick="return confirm('Are you sure want to DELETE..?')">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
-            <button class="btn btn-primary">Add</button>
+            <a class="btn btn-primary" href="{% url 'insertMotor' %}">Add</a>
         </form>
 
     </center>

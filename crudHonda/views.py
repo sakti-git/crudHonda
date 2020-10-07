@@ -21,7 +21,7 @@ def insertMotor(request):
             saverecord.save()
             messages.success(request, 'Motor ' +
                              saverecord.nama + ' Is Saved Sucessfully..!')
-            return render(request, 'insert.html')
+        return render(request, 'insert.html')
     else:
         return render(request, 'insert.html')
 
@@ -35,10 +35,9 @@ def updateProd(request, id):
     UpdateProd = ProductModel.objects.get(id=id)
     form = ProductForms(request.POST, instance=UpdateProd)
     if form.is_valid():
-
         form.save()
         messages.success(request, 'Record Updated Successfull...!')
-        return render(request, 'edit.html', {"ProductModel": UpdateProd})
+    return render(request, 'edit.html', {"ProductModel": UpdateProd})
 
 
 def deleteProd(request, id):

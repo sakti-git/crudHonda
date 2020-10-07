@@ -24,7 +24,7 @@
         </nav>
         <h3>EDIT Product</h3>
 
-        <form action="/Update/{{ProductModel}}" id="form-filter" method="POST"
+        <form action="/Update/{{ProductModel.id}}" id="form-filter" method="POST"
             style="padding-bottom: 10px; padding-right: 100px; padding-left: 100px;">
             {% csrf_token %}
             <table class="table table-hover" style="border-style: solid;">
