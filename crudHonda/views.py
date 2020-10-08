@@ -42,5 +42,5 @@ def updateProd(request, id):
 def deleteProd(request, id):
     DeleteProd = ProductModel.objects.get(id=id)
     DeleteProd.delete()
-    showdata = ProductModel.object.all()
+    showdata = ProductModel.objects.all()
     return render(request, "index.html", {"data": showdata})
